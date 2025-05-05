@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <!-- 引入 ECharts 文件 -->
+    <script src="echarts.min.js"></script>
+    <script src="china.js"></script>
+</head>
+
+<body>
+<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+<div id="main" style="width: 1728px;height:972px;"></div>
+<script type="text/javascript">
+    // 基于准备好的dom，初始化echarts实例
+    var myChart = echarts.init(document.getElementById('main'));
+
+    // 指定图表的配置项和数据
+    var name_title = "各地区医疗卫生机构数的年均增长率"
+    var mapName = 'china'
+    var data = [
+        {
+            "name": "湖北",
+            "value": 4.0233
+        },
+        {
+            "name": "浙江",
+            "value": 4.2415
+        },
+        {
+            "name": "广东",
+            "value": 6.0728
+        },
+        {
+            "name": "湖南",
+            "value": 5.1693
+        },
+        {
+            "name": "河南",
+            "value": 7.1616
+        },
+        {
+            "name": "江西",
+            "value": 6.1303
+        },
+        {
+            "name": "安徽",
+            "value": 4.5007
+        },
+        {
+            "name": "重庆",
+            "value": 5.5433
+        },
+        {
+            "name": "山东",
+            "value": 6.4924
+        },
+        {
+            "name": "四川",
+            "value": 4.9907
+        },
+        {
+            "name": "江苏",
+            "value": 3.3770
+        },
+        {
+            "name": "上海",
+            "value": -0.5985
+        },
+        {
+            "name": "北京",
+            "value": 2.8495
+        },
+        {
+            "name": "福建",
+            "value": 5.6542
+        },
+        {
+            "name": "广西",
+            "value": 5.5942
+        },
+        {
+            "name": "河北",
+            "value": 1.7821
+        },
+        {
+            "name": "云南",
+            "value": 4.5280
+        },
+        {
+            "name": "陕西",
+            "value": 5.2729
+        },
+        {
+            "name": "黑龙江",
+            "value": 5.4441
+        },
+        {
+            "name": "海南",
+            "value": 2.0947
+        },
+        {
+            "name": "辽宁",
+            "value": 4.9831
+        },
+        {
+            "name": "山西",
+            "value": 6.8006
+        },
+        {
+            "name": "天津",
+            "value": 2.8495
+        },
+        {
+            "name": "甘肃",
+            "value": 5.6503
+        },
+        {
+            "name": "内蒙古",
+            "value": 5.6956
+        },
+        {
+            "name": "宁夏",
+            "value": 4.4307
+        },
+        {
+            "name": "吉林",
+            "value": 4.4472
+        },
+        {
+            "name": "新疆",
+            "value": 4.4174
+        },
+        {
+            "name": "贵州",
+            "value": 4.6072
+        },
+        {
+            "name": "香港",
+            "value": null
+        },
+        {
+            "name": "台湾",
+            "value": null
+        },
+        {
+            "name": "青海",
+            "value": 5.4186
+        },
+        {
+            "name": "澳门",
+            "value": null
+        },
+        {
+            "name": "西藏",
+            "value": 5.6963
+        }
+
+    ];
+
+    var option = {
+        title: {
+            text: name_title,
+            x: 'center',
+            textStyle: {
+                fontSize: 24
+            },
+        },
+        tooltip: {
+            trigger: 'item',
+            formatter: function (params) {
+                var toolTiphtml = ''
+                if (isNaN(params.value)) {
+                    toolTiphtml = params.name + '0'
+                } else {
+                    toolTiphtml = params.name + '增长率: ' + params.value + '%'
+                }
+                //console.log(toolTiphtml)
+                return toolTiphtml;
+            }
+        },
+        toolbox: {
+            feature: {
+                saveAsImage: {}
+            }
+        },
+        visualMap: {
+            show: true,
+            left: 'left',
+            top: 'bottom',
+            seriesIndex: [0],
+            type: 'piecewise',
+            pieces: [
+                {min: 7.1, max: 9, color: 'rgb(220,20,60)'},
+                {min: 5.71112, max: 7, color: 'rgb(252,157,154)'},
+                {min: 2.6, max: 5.71111, color: 'rgb(249,205,200)'},
+                {min: 1.6, max: 2.5, color: 'rgb(200,200,169)'},
+                {min: 0, max: 1.5, color: 'rgb(131,175,155)'},
+                {min: -1, max: -0.1, color: 'rgb(103,169,207)'},
+                {min: -5, max: -1.1, color: 'rgb(136,189,223)'},
+            ],
+            textStyle: {
+                color: '#000000'
+            }
+        },
+        geo: {
+            show: true,
+            map: mapName,
+            label: {
+                normal: {
+                    show: true,
+                    fontSize: 12,
+                },
+                emphasis: {
+                    show: false,
+                }
+            },
+            roam: false,
+            itemStyle: {
+                normal: {
+                    areaColor: '#FFFFFF',
+                    borderColor: '#666666',
+                },
+                emphasis: {
+                    areaColor: '#0099CC',
+                }
+            }
+        },
+        series: [
+            {
+                type: 'map',
+                map: mapName,
+                geoIndex: 0,
+                animation: false,
+                data: data
+            },
+        ]
+    };
+
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+</script>
+</body>
+</html>

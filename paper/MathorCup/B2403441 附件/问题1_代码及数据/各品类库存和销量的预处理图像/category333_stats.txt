@@ -1,0 +1,10 @@
+Category: category333
+count       9.0
+mean     6002.0
+std         0.0
+min      6002.0
+25%      6002.0
+50%      6002.0
+75%      6002.0
+max      6002.0
+Name: ø‚¥Ê¡ø, dtype: float64

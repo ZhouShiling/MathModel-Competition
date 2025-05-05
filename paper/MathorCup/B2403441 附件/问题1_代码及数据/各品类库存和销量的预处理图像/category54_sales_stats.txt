@@ -1,0 +1,10 @@
+Category: category54
+count    73.000000
+mean      2.328767
+std       2.357345
+min       0.000000
+25%       0.000000
+50%       2.000000
+75%       4.000000
+max      10.000000
+Name: ÏúÁ¿, dtype: float64
