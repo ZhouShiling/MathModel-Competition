@@ -116,10 +116,10 @@ MathModel-Competition/
 
 如有任何问题或建议，欢迎通过以下方式联系我：
 
-- **邮箱**：[您的邮箱]
-- **LinkedIn**：[您的LinkedIn链接]
-- **个人网站**：[您的个人网站]
+- **邮箱**：zhoushiling0810@qq.com
+- **LinkedIn**：https://github.com/ZhouShiling
+- **个人网站**：https://algoflow.top/
 
 ---
 
-© 2025 周世龄 | 保留所有权利
+© 2025 zhoushiling | 保留所有权利
